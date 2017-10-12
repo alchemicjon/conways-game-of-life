@@ -1,6 +1,5 @@
 // main.cpp
 
-#include <iostream>
 #include "game_of_life.h"
 using namespace std;
 
@@ -10,11 +9,11 @@ int main()
 
   welcome();
   fillArray(world);
-  //display(world);
+  display(world);
 
   for(int i = 0; i < 1; i++)
   {
-    //generation(world);
+    generation(world);
     display(world);
     waitForInput();
   }
