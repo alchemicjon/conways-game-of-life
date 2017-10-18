@@ -54,9 +54,6 @@ void generation(char world[][NUMBER_OF_COLUMNS])
       }
     }
   }
-  // this does not seem to work...
-  // world = world_copy;
-
   for (int i = 0; i < NUMBER_OF_ROWS; i++)
   {
     for (int j = 0; j < NUMBER_OF_COLUMNS; j++)

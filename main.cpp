@@ -11,7 +11,7 @@ int main()
   fillArray(world);
   //display(world);
 
-  for(int i = 0; i < 4; i++)
+  for(int i = 0; i < 10; i++)
   {
     display(world);
     cout << "generation running" << endl;
