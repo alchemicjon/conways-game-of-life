@@ -9,12 +9,13 @@ int main()
 
   welcome();
   fillArray(world);
-  display(world);
+  //display(world);
 
-  for(int i = 0; i < 1; i++)
+  for(int i = 0; i < 4; i++)
   {
-    generation(world);
     display(world);
+    cout << "generation running" << endl;
+    generation(world);
     waitForInput();
   }
 

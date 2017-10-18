@@ -37,6 +37,7 @@ void generation(char world[][NUMBER_OF_COLUMNS])
     for (int j = 0; j < NUMBER_OF_COLUMNS; j++)
     {
       int neighborCount = getNeighborCount(world, i, j);
+      //cout << "Index: " << i << "," << j << " - Neighbors: " << neighborCount << endl;
       switch (neighborCount) {
         case 0:
         case 1:
@@ -53,7 +54,16 @@ void generation(char world[][NUMBER_OF_COLUMNS])
       }
     }
   }
-  world = world_copy;
+  // this does not seem to work...
+  // world = world_copy;
+
+  for (int i = 0; i < NUMBER_OF_ROWS; i++)
+  {
+    for (int j = 0; j < NUMBER_OF_COLUMNS; j++)
+    {
+      world[i][j] = world_copy[i][j];
+    }
+  }
 }
 
 void display(const char world[][NUMBER_OF_COLUMNS])
@@ -111,20 +121,20 @@ int getNeighborCount(char world[][NUMBER_OF_COLUMNS], int row, int column)
   {
     column_min = 0;
   }
-  if (row_max > NUMBER_OF_ROWS)
+  if (row_max >= NUMBER_OF_ROWS)
   {
-    row_max = NUMBER_OF_ROWS;
+    row_max = NUMBER_OF_ROWS - 1;
   }
-  if (column_max > NUMBER_OF_COLUMNS)
+  if (column_max >= NUMBER_OF_COLUMNS)
   {
-    column_max = NUMBER_OF_COLUMNS;
+    column_max = NUMBER_OF_COLUMNS - 1;
   }
 
-  for (int i = row_min; i < row_max; i++)
+  for (int i = row_min; i <= row_max; i++)
   {
-    for (int j = column_min; j < column_max; j++)
+    for (int j = column_min; j <= column_max; j++)
     {
-      if (world[i][j] == LIVE_CELL)
+      if ((i == row && j == column) == false && world[i][j] == LIVE_CELL)
       {
         count++;
       }
